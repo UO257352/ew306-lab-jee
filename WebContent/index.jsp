@@ -1,3 +1,5 @@
+<%@ page language="java" import="tew.beans.Counter"%> 
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; utf-8">
@@ -16,16 +18,15 @@
 		}
 	%>
 	<h1>Bienvenido a mi primera página web!</h1>
-	
+
 	<br>
-<%
- Integer contador = (Integer)application.getAttribute("contador");
- if ( contador == null ){
- contador = new Integer(0);
- }
- application.setAttribute("contador",new Integer(contador.intValue()+1));
-%>
-<center><%=contador%> visitas</center>
+
+	<jsp:useBean id="contador" class="tew.beans.Counter"
+		scope="application" />
+	<center>
+		<jsp:getProperty property="incrementedValue" name="contador" />
+		visitas
+	</center>
 </body>
 </html>
 >
