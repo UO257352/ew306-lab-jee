@@ -1,6 +1,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Set"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
 <head>
@@ -8,7 +9,9 @@
 <title>Mi Tienda!</title>
 </head>
 <body>
-	<center><h1>Tienda Virtual</h1></center>
+	<center>
+		<h1>Tienda Virtual</h1>
+	</center>
 	<br>
 	<form action="tienda.jsp" method="post">
 		<br>
@@ -61,18 +64,12 @@
 	</center>
 	<br>
 	<center>
-		<%
-			Set<String> productos = carrito.keySet();
-			Iterator<String> iter = productos.iterator();
-			while (iter.hasNext()) {
-				String elemento = (String) iter.next();
-		%>
-		<br>Del producto
-		<%=elemento%>,
-		<%=(Integer) carrito.get(elemento) %> unidades.
-		<%
-			}
-		%>
+		<ul>
+			<c:forEach var="entry" items="${carrito}">
+				<li><c:out
+						value="Del producto ${entry.key}, ${entry.value} unidades" /></li>
+			</c:forEach>
+		</ul>
 	</center>
 </body>
 <html>
