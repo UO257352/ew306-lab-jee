@@ -32,24 +32,24 @@ public class HolaMundoVistaServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		
+
 		out.println("<HTML>");
 		out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
-		
+
 		out.println("<BODY>");
 		String nombre = (String) request.getParameter("NombreUsuario");
 		if ( nombre != null )
-		out.println("<br>Hola "+nombre+"<br>");
+			out.println("<br>Hola "+nombre+"<br>");
 		out.println("Bienvenido a mi primera página web!");
 		out.println("<br>");
 		out.println("Contigo, hoy me han visitado:<br>");
-		
+
 		@SuppressWarnings("unchecked")
-		 Vector<String> listado = (Vector<String>)request.getSession().getAttribute("listado");
+		Vector<String> listado = (Vector<String>)request.getSession().getAttribute("listado");
 		for ( int i = 0 ; i < listado.size() - 1; i++ ){
 			out.println("<br>"+(String)listado.elementAt(i));
 		}
-			
+
 		out.println("<br><br><a href=\"index.html\">volver</a>");
 
 		Integer contador= (Integer) getServletContext().getAttribute("contador");
