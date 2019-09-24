@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,29 +31,7 @@ public class CarritoCompraServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 
-		out.println("<HTML>");
-		out.println("<HEAD><TITLE>Carrito compra</TITLE></HEAD>");
-
-		out.println("<BODY>");
-		out.println("<center>");
-		out.println("<h1>¡Bienvenido a la tienda!</h1>");
-		out.println("<form action=\"/servletsv0_0/CarritoCompra\" method=\"post\")");
-		out.println("<br><br><br><select name=idProducto>");
-		out.println("<option value=1>Manzana</option>");
-		out.println("<option value=2>Pera</option>");
-		out.println("<option value=2>Sandía </option>");
-		out.println("<option value=3>Melón </option>");
-		out.println("<option value=4>Naranja </option>");
-		out.println("<option value=5>Mandarina </option>");
-		out.println("<option value=6>Fresa </option>");
-		out.println("<option value=7>Ciruela </option>");
-		out.println("<option value=8>Kiwi </option>");
-		out.println("<option value=9>Platano </option>");
-		out.println("<option value=10>Coco </option>");
-		out.println("</select>");
-		out.println("<br><br><input type=\"submit\" value=\"Añadir al carro\">");
 
 		@SuppressWarnings("unchecked")
 		HashMap<String, Integer> carro = (HashMap<String, Integer>) request.getSession().getAttribute("carro");
@@ -67,14 +46,11 @@ public class CarritoCompraServlet extends HttpServlet {
 			else
 				carro.put(idProducto, 1);
 		}
-		out.println("<br><br>");
 		request.getSession().setAttribute("carro", carro);
-		Set<String> claves = carro.keySet();
-		for(String id: claves) {
-			out.println(id + ": " + carro.get(id) + "<br>");
-		}
-		out.println("</center>");
-		out.println("</body>");
+
+
+		RequestDispatcher dispatcher = getServletContext().getNamedDispatcher("CarritoCompraVistaServlet");
+		dispatcher.forward(request, response);
 	}
 
 	/**
