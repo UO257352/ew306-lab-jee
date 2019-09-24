@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "HolaMundo", urlPatterns = { "/HolaMundoCordial" })
 public class HolaMundoServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 3L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
