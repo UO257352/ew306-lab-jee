@@ -7,7 +7,7 @@ import com.tew.infrastructure.Factories;
 import com.tew.model.Alumno;
 
 @ManagedBean
-@SessionScoped
+@ApplicationScoped
 public class BeanAlumnos implements Serializable{
 	
 	private static final long serialVersionUID = 55555L;
