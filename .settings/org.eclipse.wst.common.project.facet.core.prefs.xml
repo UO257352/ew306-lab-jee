@@ -1,7 +1,11 @@
 <root>
   <facet id="jst.jsf">
     <node name="libprov">
+<<<<<<< HEAD
       <attribute name="provider-id" value="jsf-no-op-library-provider"/>
+=======
+      <attribute name="provider-id" value="runtime-library-provider"/>
+>>>>>>> branch 'master' of https://github.com/UO257352/tew306-lab-jee
     </node>
   </facet>
 </root>

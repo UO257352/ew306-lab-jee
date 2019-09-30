@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>gestioneitorv1_0</name>
 	<comment></comment>
 	<projects>
@@ -10,6 +11,13 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+=======
+	<name>servletsv0_0</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+>>>>>>> branch 'master' of https://github.com/UO257352/tew306-lab-jee
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
