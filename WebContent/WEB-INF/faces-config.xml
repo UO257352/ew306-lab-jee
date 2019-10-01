@@ -14,10 +14,6 @@
 			<from-outcome>alta</from-outcome>
 			<to-view-id>/altaForm.xhtml</to-view-id>
 		</navigation-case>
-				<navigation-case>
-			<from-outcome>edita</from-outcome>
-			<to-view-id>/altaForm.xhtml</to-view-id>
-		</navigation-case>
 	</navigation-rule>
 
 	<navigation-rule>
@@ -34,6 +30,19 @@
 		<navigation-case>
 			<from-outcome>error</from-outcome>
 			<to-view-id>/error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/listado.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controller.baja}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/listado.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/editForm.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
